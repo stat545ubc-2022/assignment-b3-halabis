@@ -6,6 +6,7 @@ library(ggplot2)
 library(DT)
 library(dplyr)
 library(colourpicker)
+library(shinythemes)
 
 #Load bcl data
 
@@ -13,7 +14,7 @@ bcl <- read_csv("~/Desktop/bcl-data.csv")
 
 #Shiny app
 
-ui <- fluidPage(
+ui <- fluidPage(theme = shinytheme("cosmo"),
   titlePanel("BC Liquor Store Data"),
   h5("Welcome to my shiny app!"),
   br(),
