@@ -2,6 +2,10 @@
 
 library(tidyverse)
 library(shiny)
+library(ggplot2)
+library(DT)
+library(dplyr)
+library(colourpicker)
 
 #Load bcl data
 
@@ -16,34 +20,53 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("priceInput", "Price", 0, 100, value = c(25,40), pre = "$"),
-      radioButtons("typeInput", "Type",
-                   choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"))
+      sliderInput(inputId = "NOofBins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30),
+      checkboxGroupInput("typeInput", "Product Type",
+                         choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
+                         selected = "WINE"),
+     # radioButtons("typeInput", "Type",
+                   #choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE")),
+      checkboxInput("sortInput", "Sort data by price") #providing 2 options by which to sort data table
+     #colourInput("colorInput", "Plot Color", "Black"),
     )
     ,
-    mainPanel(
-      plotOutput("alcohol_hist"),
-      tableOutput("data_table")
-    )
+    mainPanel(tabsetPanel(
+      tabPanel("Histogram", plotOutput("alcohol_hist")),
+      tabPanel("Data", DT::dataTableOutput("data_table")))
+     )
   ),
   a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv")
 )
 
 server <- function(input, output) {
   filtered_data <-
-    reactive({bcl %>%filter(Price > input$priceInput[1] &
-                              Price < input$priceInput[2] &
+    reactive({
+     new <- bcl %>%filter(Price >= input$priceInput[1] &
+                              Price <= input$priceInput[2] &
                               Type == input$typeInput)
+     if(input$sortInput){
+       new %>%
+         arrange(Price)
+     } else{
+       new
+     }
     })
 
   output$alcohol_hist <- renderPlot({ #this curly bracket is not super necessary but if you want to specify that this is your plotting code you can add
     filtered_data() %>%
-      ggplot(aes(Alcohol_Content)) + geom_histogram()
+      ggplot(aes(Alcohol_Content, fill=Type)) + geom_histogram(bins = input$NOofBins,)
   })
 
   output$data_table <-
-    renderTable({
-      filtered_data()
+    DT::renderDataTable({
+     filtered_data()
+
     })
+
 
 }
 
