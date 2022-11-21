@@ -35,9 +35,10 @@ ui <- fluidPage(theme = shinytheme("cosmo"),
      #colourInput("colorInput", "Plot Color", "Black"),
     )
     ,
-    mainPanel(tabsetPanel(
+    mainPanel(img(src = "bcliquor.png", height=150, width = 400),
+      tabsetPanel(
       tabPanel("Histogram", plotOutput("alcohol_hist")),
-      tabPanel("Data", DT::dataTableOutput("data_table")))
+      tabPanel("Data", DT::dataTableOutput("data_table"))),
      )
   ),
   a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv")
