@@ -31,14 +31,17 @@ ui <- fluidPage(theme = shinytheme("cosmo"),
                          selected = "WINE"),
      # radioButtons("typeInput", "Type",
                    #choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE")),
-      checkboxInput("sortInput", "Sort data by price") #providing 2 options by which to sort data table
+      checkboxInput("sortInput", "Sort data by price"), #providing 2 options by which to sort data table
      #colourInput("colorInput", "Plot Color", "Black"),
+     textOutput("")
     )
     ,
     mainPanel(img(src = "bcliquor.png", height=150, width = 400),
       tabsetPanel(
       tabPanel("Histogram", plotOutput("alcohol_hist")),
-      tabPanel("Data", DT::dataTableOutput("data_table"))),
+      tabPanel("Data", DT::dataTableOutput("data_table"), downloadButton("download_table", "Download Table"))),
+      textOutput("text")
+
      )
   ),
   a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv")
@@ -69,7 +72,18 @@ server <- function(input, output) {
 
     })
 
+  output$download_table <- downloadHandler(
+    filename = function(){
+      paste('data_table', '.csv', sep="-")
+    },
+    content = function(file){
+      write.csv(filtered_data(), file)
+    }
+  )
 
+  output$text <- renderText({
+    paste("The number of results in this price range and for this product(s) is:", nrow(filtered_data()))
+  })
 }
 
 shinyApp(ui = ui, server = server)
