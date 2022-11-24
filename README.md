@@ -1,17 +1,17 @@
-#Assignment B3 - Sabine Halabi
+# Assignment B3 - Sabine Halabi
 
 Hello! For assignment B3, I have decided to go with **Option A: Add three features to an already-existing BC Liquor shiny app**. The application allows users to assess, visualize, and interact with data from the BC liquor dataset which includes features such as product type, country, price, alcohol content, and more. This app will be further developed in future assignments (**assignment B4**).
 
 This repository includes the script **BCL Shiny App.R** in which the app development code is, the data itself **bcl-data.csv**, and all other necessary technological files. 
 
-##Data Source
+## Data Source
 The dataset has been uploaded in this repository **bcl-data.csv**. The data was obtained from the shiny-server repository at the following link: https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv 
 
-##Application Link
+## Application Link
 
 You can access the Shiny App through the following link: https://halabis.shinyapps.io/assignment-b3-halabis/ 
 
-##Features
+## Features
 
 My application additions and modifications have made the app more user-friendly, visually appealing, and less rigid. The following features have been added:
 
