@@ -10,7 +10,7 @@ library(shinythemes)
 
 #Load bcl data
 
-bcl <- read_csv("~/Desktop/bcl-data.csv")
+bcl <- read_csv("bcl-data.csv")
 
 #Shiny app
 

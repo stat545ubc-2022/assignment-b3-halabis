@@ -1,0 +1,14 @@
+name: assignment-b3-halabis
+title: assignment-b3-halabis
+username:
+account: halabis
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7721419
+bundleId: 6549887
+url: https://halabis.shinyapps.io/assignment-b3-halabis/
+when: 1669275039.50452
+lastSyncTime: 1669275039.50454
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: README.md
