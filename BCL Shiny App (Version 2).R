@@ -28,7 +28,8 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
                                 value = 30),
                     checkboxGroupInput("typeInput", "Product Type", #Feature 3: I have changed the product type choice in the side panel so that you can select more than one product type at a time to show in the histogram or the data table by replacing radioButtons function with checkboxGroupInput. This is useful to compare different product types in terms of prices and distribution.
                                        choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
-                                       selected = "WINE")
+                                       selected = "WINE"),
+                    uiOutput("countryOutput")
                     )
                   ,
                   mainPanel(img(src = "bclimage.png", height=150, width = 400),
@@ -45,14 +46,33 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
 
 server <- function(input, output) {
 
+  output$countryOutput <- renderUI({
+    selectInput("countryInput", "Country",
+                sort(unique(bcl$Country)),
+                selected = "CANADA")
+  })
+
   filtered_data <-
     reactive({
+      if (is.null(input$countryInput)) {
+        return(NULL)
+      }
+      if (is.null(input$typeInput)) {
+        return(NULL)
+      }
       bcl %>%filter(Price >= input$priceInput[1],
                     Price <= input$priceInput[2],
-                    Type == input$typeInput)
+                    Type == input$typeInput,
+                    Country == input$countryInput)
     })
 
-  output$alcohol_hist <- renderPlot({ filtered_data() %>%
+  output$alcohol_hist <- renderPlot({
+
+    if (is.null(filtered_data())) {
+      return()
+    }
+
+    filtered_data() %>%
       ggplot(aes(Alcohol_Content, fill=Type)) +
       geom_histogram(bins = input$NOofBins) +
       labs(title = "BCL Liquor Histogram", x = "Alcohol Content", y = "Count") + #added labs
