@@ -32,6 +32,7 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
                     )
                   ,
                   mainPanel(img(src = "bclimage.png", height=150, width = 400),
+                            textOutput("selected_results"),
                     tabsetPanel( #Feature 5: Added tabs of Histogram and Data to the app to improve organization using tabsetPanel.
                       tabPanel("Histogram", plotOutput("alcohol_hist")),
                       tabPanel("Data", DT::dataTableOutput("data_table"), downloadButton("download_table", "Download Table"))), #Feature 6: Added download button that allows you to download the datatable as a csv file. This is important if users want to use the datatable for data analysis or have it saved for future use.
@@ -69,6 +70,10 @@ server <- function(input, output) {
       write.csv(filtered_data(), file)
     }
   )
+
+  output$selected_results<- renderText({
+    paste("There are", nrow(filtered_data()),"number of results based on your selections." )
+  })
 }
 
 shinyApp(ui = ui, server = server)
