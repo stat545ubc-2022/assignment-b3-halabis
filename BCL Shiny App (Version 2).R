@@ -44,16 +44,21 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
 )
 
 server <- function(input, output) {
+
   filtered_data <-
     reactive({
-      bcl %>%filter(Price >= input$priceInput[1] &
-                             Price <= input$priceInput[2] &
-                             Type == input$typeInput)
+      bcl %>%filter(Price >= input$priceInput[1],
+                    Price <= input$priceInput[2],
+                    Type == input$typeInput)
     })
 
-  output$alcohol_hist <- renderPlot({
-    filtered_data() %>%
-      ggplot(aes(Alcohol_Content, fill=Type)) + geom_histogram(bins = input$NOofBins) #Feature 2: Added bins to the geom_histogram and enabled a fill color by product type aesthetic in the ggplot to distinguish between product types when more than one is chosen.
+  output$alcohol_hist <- renderPlot({ filtered_data() %>%
+      ggplot(aes(Alcohol_Content, fill=Type)) +
+      geom_histogram(bins = input$NOofBins) +
+      labs(title = "BCL Liquor Histogram", x = "Alcohol Content", y = "Count") + #added labs
+      theme(panel.border = element_rect(colour = "black", fill=NA),
+            legend.box.background = element_rect(colour = "black")) #added box and panel borders
+      #Feature 2: Added bins to the geom_histogram and enabled a fill color by product type aesthetic in the ggplot to distinguish between product types when more than one is chosen.
   })
 
   output$data_table <-
