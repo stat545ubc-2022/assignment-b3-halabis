@@ -5,7 +5,6 @@ library(shiny)
 library(ggplot2)
 library(DT)
 library(dplyr)
-library(colourpicker)
 library(shinythemes)
 
 #Load bcl data
@@ -20,6 +19,7 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
                 br(),
                 sidebarLayout(
                   sidebarPanel(
+                    h3("Filters"),
                     sliderInput("priceInput", "Price", 0, 100, value = c(25,40), pre = "$"),
                     sliderInput(inputId = "NOofBins", #Feature 2: Added a sliderInput option to choose the number of bins shown in the histogram. This is useful for improved visualization, it will improve ability to look at outliers, and more bins will help with any future analysis
                                 label = "Number of bins:",
@@ -29,11 +29,11 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
                     checkboxGroupInput("typeInput", "Product Type", #Feature 3: I have changed the product type choice in the side panel so that you can select more than one product type at a time to show in the histogram or the data table by replacing radioButtons function with checkboxGroupInput. This is useful to compare different product types in terms of prices and distribution.
                                        choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
                                        selected = "WINE"),
-                    uiOutput("countryOutput")
+                    uiOutput("countryOutput"),
+                    textOutput("selected_results")
                     )
                   ,
                   mainPanel(img(src = "bclimage.png", height=150, width = 400),
-                            textOutput("selected_results"),
                     tabsetPanel( #Feature 5: Added tabs of Histogram and Data to the app to improve organization using tabsetPanel.
                       tabPanel("Histogram", plotOutput("alcohol_hist")),
                       tabPanel("Data", DT::dataTableOutput("data_table"), downloadButton("download_table", "Download Table"))), #Feature 6: Added download button that allows you to download the datatable as a csv file. This is important if users want to use the datatable for data analysis or have it saved for future use.
