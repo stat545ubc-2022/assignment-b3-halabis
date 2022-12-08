@@ -43,8 +43,7 @@ ui <- fluidPage(theme = shinytheme("united"), #Feature 1: I have changed my prev
                   mainPanel(
                     tabsetPanel(
                       tabPanel("Histogram", plotOutput("alcohol_hist")),
-                      tabPanel("Data", DT::dataTableOutput("data_table"), downloadButton("download_table", "Download Table"))), #Feature 6: Added download button that allows you to download the datatable as a csv file. This is important if users want to use the datatable for data analysis or have it saved for future use.
-                    #Feature 7: Turned datatable from a static to interactive table using the DT package. This allows users to have useful functions such as search bar, showing however number of rows they like, etc.
+                      tabPanel("Data", DT::dataTableOutput("data_table"), downloadButton("download_table", "Download Table")))
 
                   )
                 ),
@@ -85,13 +84,13 @@ server <- function(input, output) {
     filtered_data() %>%
       ggplot(aes(Alcohol_Content, fill=Type)) +
       geom_histogram(bins = input$NOofBins) +
-      labs(title = "BCL Liquor Histogram", x = "Alcohol Content (%)", y = "Count") + #added labs
+      labs(title = "BCL Liquor Histogram", x = "Alcohol Content (%)", y = "Count") + #added labels
       theme_light() +
-      theme(panel.border = element_rect(colour = "black", fill=NA),
-            plot.title = element_text(size = 25, face = "bold"),
-            legend.box.background = element_rect(colour = "black"),
-            legend.title = element_text("Product Type"),
-            axis.title = element_text(size = 17, face = "bold"),
+      theme(panel.border = element_rect(colour = "black", fill=NA), #added panel border
+            plot.title = element_text(size = 25, face = "bold"), #improved plot title features
+            legend.box.background = element_rect(colour = "black"), #added an outline to legend box
+            legend.title = element_text("Product Type"), #added legend title
+            axis.title = element_text(size = 17, face = "bold"), #improved axis title features
             axis.text = element_text(size = 15)) #added box and panel borders
   }) #Feature 9: I have greatly improve my histogram by added numerous parameters and features to it such as a clearer theme, appropriate axis and graph titles, and more visual factors.
 
