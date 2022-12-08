@@ -14,7 +14,9 @@ In this repository you will find 2 assignments in which the BC Liquor app was de
 
 * A **B4** folder which contains all the new improvements and feature additions to the app from **Assignment B4** in the R script **BCL Shiny App (B4).R**. 
 
-Please follow along below for the details of the repository as well as lists of all features included in the application.
+Please follow along below for the details of the repository as well as lists of all features included in the application. 
+
+**Please note:** The features are additive, so all features from **assignment B3** are still included in **assignment B4** (with minor adjustments) but they will not be listed AGAIN in the **Assignment B4** subsection. You can find the features from **assignment B3** listed in the **Assignment B3** subsection.
 
 ## Data Source
 The dataset has been uploaded in this repository **bcl-data.csv**. The data was obtained from the shiny-server repository at the following link: https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv
@@ -53,7 +55,7 @@ My application additions and modifications have made the app more user-friendly,
 
 For **assignment B4**, I have included numerous additional features (in addition to the previous ones from **assignment B3**) while also improving on a few of the previous features and overall aesthetics of the application. The script for **assignment B4** (*BCL Shiny App (B4).R*) can be found under folder **B4** as mentioned. You can find the link to the app in the next subsection. Please read the features subsection to learn about the features added in **assignment B4**.
 
-**PLEASE NOTE: I WILL NOT BE RE-typing THE FEATURES FROM ASSIGNMENT B3, AS I HAVE ALREADY LISTED THEM IN THE ASSIGNMENT B3 SECTION.**
+**AGAIN PLEASE NOTE:** *I will not be retyping the features from assignment b3. Just know that all features listed for assignment B4 are IN ADDITION to B3 features.*
 
 ### Assignment B4 App Link
 
