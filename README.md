@@ -1,4 +1,4 @@
-# BC Liquor App
+# BC Liquor App 🍷
 
 Hello! Welcome to my BC Liquor App repository. The function of this app is to allow users to interactively explore the BC Liquor data set which includes properties of products that are sold at BC Liquor Stores including prices, country of origin, product type, etc.
 
