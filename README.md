@@ -1,6 +1,8 @@
 # BC Liquor App
 
-Hello! Welcome to my BC Liquor App repository. In this repository you will find 2 assignments in which the BC Liquor app was developed and improved. Repository contents include:
+Hello! Welcome to my BC Liquor App repository. The function of this app is to allow users to interactively explore the BC Liquor data set which includes properties of products that are sold at BC Liquor Stores including prices, country of origin, product type, etc.
+
+In this repository you will find 2 assignments in which the BC Liquor app was developed and improved. Repository contents include:
 
 * The dataset being used **bcl-data.csv** in the main branch.
 
