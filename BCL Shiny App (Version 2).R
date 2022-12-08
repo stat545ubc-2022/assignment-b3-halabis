@@ -41,7 +41,8 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
 
                   )
                 ),
-                a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv")
+                a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv",
+                  "Click this link to see the original data set!")
 )
 
 server <- function(input, output) {
@@ -55,10 +56,10 @@ server <- function(input, output) {
   filtered_data <-
     reactive({
       if (is.null(input$countryInput)) {
-        return(NULL)
+        return()
       }
       if (is.null(input$typeInput)) {
-        return(NULL)
+        return()
       }
       bcl %>%filter(Price >= input$priceInput[1],
                     Price <= input$priceInput[2],
@@ -75,9 +76,14 @@ server <- function(input, output) {
     filtered_data() %>%
       ggplot(aes(Alcohol_Content, fill=Type)) +
       geom_histogram(bins = input$NOofBins) +
-      labs(title = "BCL Liquor Histogram", x = "Alcohol Content", y = "Count") + #added labs
+      labs(title = "BCL Liquor Histogram", x = "Alcohol Content (%)", y = "Count") + #added labs
+      theme_light() +
       theme(panel.border = element_rect(colour = "black", fill=NA),
-            legend.box.background = element_rect(colour = "black")) #added box and panel borders
+            plot.title = element_text(size = 25, face = "bold"),
+            legend.box.background = element_rect(colour = "black"),
+            legend.title = element_text("Product Type"),
+            axis.title = element_text(size = 17, face = "bold"),
+            axis.text = element_text(size = 15)) #added box and panel borders
       #Feature 2: Added bins to the geom_histogram and enabled a fill color by product type aesthetic in the ggplot to distinguish between product types when more than one is chosen.
   })
 
