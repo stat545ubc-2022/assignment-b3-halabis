@@ -15,11 +15,10 @@ bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(theme = shinytheme("united"), #Feature 1: I have added a theme called united to make my app more visually appealing using the shinytheme package.
                 tags$figure(align = "center",
-                            img(src = "bclimage.png", height=150, width = 400)),
+                            img(src = "bclimage.png", height=300, width = 700)),
                 br(),
                 titlePanel("BC Liquor Store Product Properties"),
-                br(),
-                h5("Welcome to my shiny app! This app is the perfect way for you to assess different properties of liquor products from around the world that is sold at BC Liquor stores such as alcohol content, price, and more! This data set can be retrieved at the link in the bottom of the page. You can explore the BC Liquor dataset either through the dataset in the 'Data' tab or through visualization of distribution in the 'Histogram' Tab. You can toggle the data in the table and the histogram by using the options in the 'Filter' side panel such as showing you certain number of bins in the histogram, specific countries of origin, price ranges, and more! The histogram will color your data based on the type of product you have chosen as well for better visualization. Enjoy!"), #I have added a more descriptive caption for my app
+                h3("Welcome to my shiny app! This app is the perfect way for you to assess different properties of liquor products from around the world that is sold at BC Liquor stores such as alcohol content, price, and more! This data set can be retrieved at the link in the bottom of the page. You can explore the BC Liquor dataset either through the dataset in the 'Data' tab or through visualization of distribution in the 'Histogram' Tab. You can toggle the data in the table and the histogram by using the options in the 'Filter' side panel such as showing you certain number of bins in the histogram, specific countries of origin, price ranges, and more! The histogram will color your data based on the type of product you have chosen as well for better visualization. Enjoy!"), #I have added a more descriptive caption for my app
                 hr(style="border-color: red;"),
                 br(),
                 sidebarLayout(
