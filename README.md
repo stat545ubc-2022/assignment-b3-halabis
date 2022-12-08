@@ -14,7 +14,7 @@ In this repository you will find 2 assignments in which the BC Liquor app was de
 
 * A **B4** folder which contains all the new improvements and feature additions to the app from **Assignment B4** in the R script **BCL Shiny App (B4).R**. 
 
-Please follow along below for the details of the repository.
+Please follow along below for the details of the repository as well as lists of all features included in the application.
 
 ## Data Source
 The dataset has been uploaded in this repository **bcl-data.csv**. The data was obtained from the shiny-server repository at the following link: https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv
@@ -55,9 +55,38 @@ For **assignment B4**, I have included numerous additional features (in addition
 
 ### Assignment B4 App Link
 
-You can access the Shiny App through the following link: https://halabis.shinyapps.io/assignment-b4-halabis/ 
+You can access the Shiny App through the following link: https://halabis.shinyapps.io/assignment-b4-halabis/
 
 ### Features Added in Assignment B4 (in addition to the assignment B3 features)
+
+**Feature 1:** I have changed the theme which was originally "flatly" in assignment B3 but now is "united" because I felt it was more aesthetically pleasing.
+
+**Feature 2:** I have added an image to my application header using the tag img as well as the figure tag which allowed me to align my image in the center of my header. This improves "friendliness" of the app for users and visual appeal.
+
+**Feature 3:** I have added borders near the top and the bottom of the app to better section the texts in the app. This will allow for easier reading by the users. 
+
+**Feature 4:** I added a title to the side panel to improve user understanding of what the side panel is meant to be used for. 
+
+**Feature 5:** I added a uiOutput function in the UI of the application, and a corresponding countryOutput in the server to render that UI to allow users to select the counrty of their choice to visualize. This allow users to further visualize the data and associations.
+
+**Feature 6:** I added a text output option in the UI and the server which results in a text that highlights how many results there were based on the users filter selections. The statement I chose included "There are ___ number of results based on your selections". 
+
+**Feature 7:** I added a link to the original data labelled "Click this link to see the original data set!" at the bottom of the app page. This way, if individuals do not understand how to access the data through the README (or didn't read the README at all!) will be able to access the data repository easily. 
+
+**Feature 8:** I added a selectInput to the countryOuput in my server corresponding to **Feature 5** uiOutput. This will create a drop down selection option for participants to select country of choice to explore.
+
+**Feature 9:** I have greatly improve my histogram by adding numerous parameters and features to it such as a clearer theme, appropriate axis and graph titles, improving text sizes, improving legend aesthetics, and more visual factors.
+
+**Feature 10:** I have added a text output in the server that corresponds with **Feature 6**. I inputted a message so that the number of results will be outputted in a sentence format.
+
+**More General Changes:**
+
+* In assignment B3 I had included an option to sort the data table by price using a checkboxInput function in the UI. However, given that my datatable is interactive, you can already sort the table by increasing or decreasing price. Thus, this check box was redundant and I removed it. 
+
+* I improved spacing in my app using br tag and I improve my description of the app.
+
+
+I hope you enjoy using my app!
 
 
 
