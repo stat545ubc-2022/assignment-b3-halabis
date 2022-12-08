@@ -12,6 +12,7 @@ library(shinythemes)
 bcl <- read_csv("bcl-data.csv")
 
 #Shiny app with additional features (compared to assignment B3)
+##please note that all feature comments in this script are only corresponding to changes made in part B4 of the assignment. Features from part B3 are commented on in the B3 script.
 
 ui <- fluidPage(theme = shinytheme("united"), #Feature 1: I have changed my previous theme from flatly to the theme united to make my app more visually appealing using the shinytheme package.
                 tags$figure(align = "center",
