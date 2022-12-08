@@ -5,10 +5,10 @@ account: halabis
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7846180
-bundleId: 6611880
+bundleId: 6611949
 url: https://halabis.shinyapps.io/assignment-b4-halabis/
-when: 1670527792.66642
-lastSyncTime: 1670527792.66643
+when: 1670528639.08386
+lastSyncTime: 1670528639.08388
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: .RData|B3/BCL Shiny App.R|README.md|www/.DS_Store
