@@ -58,7 +58,7 @@ server <- function(input, output) {
   output$countryOutput <- renderUI({
     selectInput("countryInput", "Country",
                 sort(unique(bcl$Country)),
-                selected = "CANADA") #Feature 8 (corresponds with Feature 6): I have added a countryOutput widget corresponding to the uiOutputto my server and filtered data so that users can select input of their country of choice.
+                selected = "CANADA") #Feature 8 (corresponds with Feature 5): I have added a countryOutput widget corresponding to the uiOutputto my server and filtered data so that users can select input of their country of choice.
   })
 
   filtered_data <-
