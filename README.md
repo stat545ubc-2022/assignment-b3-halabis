@@ -1,4 +1,4 @@
-# Assignment B3 - Sabine Halabi
+# Assignment B3 and B4
 
 Hello! For assignment B3, I have decided to go with **Option A: Add three features to an already-existing BC Liquor shiny app**. The application allows users to assess, visualize, and interact with data from the BC liquor dataset which includes features such as product type, country, price, alcohol content, and more. This app will be further developed in future assignments (**assignment B4**).
 
