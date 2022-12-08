@@ -1,0 +1,14 @@
+name: assignment-b4-halabis
+title: assignment-b4-halabis
+username:
+account: halabis
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7846180
+bundleId: 6609775
+url: https://halabis.shinyapps.io/assignment-b4-halabis/
+when: 1670493159.89156
+lastSyncTime: 1670493159.89158
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|BCL Shiny App.R|README.md|www/.DS_Store
