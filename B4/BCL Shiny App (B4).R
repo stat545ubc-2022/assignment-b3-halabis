@@ -26,12 +26,12 @@ ui <- fluidPage(theme = shinytheme("united"), #Feature 1: I have changed my prev
                     h3("Filters"), #Feature 4: I added a title to the side panel to improve user understanding
                     br(),
                     sliderInput("priceInput", "Price", 0, 100, value = c(25,40), pre = "$"),
-                    sliderInput(inputId = "NOofBins", #Feature 2: Added a sliderInput option to choose the number of bins shown in the histogram. This is useful for improved visualization, it will improve ability to look at outliers, and more bins will help with any future analysis
+                    sliderInput(inputId = "NOofBins",
                                 label = "Number of bins",
                                 min = 1,
                                 max = 50,
                                 value = 30),
-                    checkboxGroupInput("typeInput", "Product Type", #Feature 3: I have changed the product type choice in the side panel so that you can select more than one product type at a time to show in the histogram or the data table by replacing radioButtons function with checkboxGroupInput. This is useful to compare different product types in terms of prices and distribution.
+                    checkboxGroupInput("typeInput", "Product Type",
                                        choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
                                        selected = "WINE"),
                     #In assignment B3 modifications, I had added a widget to sort the graph and data by price, but it is redundant since my table is already interactive and the data can be sorted by price by clicking on that column.
