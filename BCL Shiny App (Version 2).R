@@ -13,16 +13,21 @@ bcl <- read_csv("bcl-data.csv")
 
 #Shiny app
 
-ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme called flatly to make my app more visually appealing using the shinytheme package.
+ui <- fluidPage(theme = shinytheme("united"), #Feature 1: I have added a theme called flatly to make my app more visually appealing using the shinytheme package.
+                img(src = "bclimage.png", height=150, width = 400),
+                br(),
                 titlePanel("BC Liquor Store Data"),
-                h5("Welcome to my shiny app! In this app, you can explore the BC Liquor data either through the dataset in the 'Data' tab or through visualization in the 'Histogram' Tab. The data can be ordered by price using the check box in the side panel. The histogram is interactive and can be filtered by product type, price range, and can show different bin numbers using the slider."), #I have added a more descriptive caption for my app
+                br(),
+                h5("Welcome to my shiny app! This app is the perfect way for you to assess different properties of liquor products from around the world that is sold at BC Liquor stores such as alcohol content, price, and more! You can explore the BC Liquor dataset either through the dataset in the 'Data' tab or through visualization of distribution in the 'Histogram' Tab. You can toggle the data in the table and the histogram by using the options in the 'Filter' side panel such as showing you certain number of bins in the histogram, specific countries of origin, price ranges, and more! The histogram will color your data based on the type of product you have chosen as well for better visualization. Enjoy!"), #I have added a more descriptive caption for my app
+                hr(style="border-color: red;"),
                 br(),
                 sidebarLayout(
                   sidebarPanel(
                     h3("Filters"),
+                    br(),
                     sliderInput("priceInput", "Price", 0, 100, value = c(25,40), pre = "$"),
                     sliderInput(inputId = "NOofBins", #Feature 2: Added a sliderInput option to choose the number of bins shown in the histogram. This is useful for improved visualization, it will improve ability to look at outliers, and more bins will help with any future analysis
-                                label = "Number of bins:",
+                                label = "Number of bins",
                                 min = 1,
                                 max = 50,
                                 value = 30),
@@ -33,7 +38,7 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
                     textOutput("selected_results")
                     )
                   ,
-                  mainPanel(img(src = "bclimage.png", height=150, width = 400),
+                  mainPanel(
                     tabsetPanel( #Feature 5: Added tabs of Histogram and Data to the app to improve organization using tabsetPanel.
                       tabPanel("Histogram", plotOutput("alcohol_hist")),
                       tabPanel("Data", DT::dataTableOutput("data_table"), downloadButton("download_table", "Download Table"))), #Feature 6: Added download button that allows you to download the datatable as a csv file. This is important if users want to use the datatable for data analysis or have it saved for future use.
@@ -41,8 +46,10 @@ ui <- fluidPage(theme = shinytheme("flatly"), #Feature 1: I have added a theme c
 
                   )
                 ),
+                hr(style="border-color: red;"),
                 a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv",
-                  "Click this link to see the original data set!")
+                  "Click this link to see the original data set!"),
+                hr(style="border-color: red;")
 )
 
 server <- function(input, output) {
