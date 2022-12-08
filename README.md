@@ -19,6 +19,8 @@ Please follow along below for the details of the repository as well as lists of 
 ## Data Source
 The dataset has been uploaded in this repository **bcl-data.csv**. The data was obtained from the shiny-server repository at the following link: https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv
 
+Another option for checking out the data is through the government BC site where they have the version of the data set that has not been pre-processed yet: https://catalogue.data.gov.bc.ca/dataset/bc-liquor-store-product-price-list-historical-prices 
+
 ## Assignment B3
 
 For **assignment B3**, I added three (or more) features to an already-existing BC Liquor shiny app. The application allows users to assess, visualize, and interact with data from the BC liquor dataset which includes features such as product type, country, price, alcohol content, and more. I have outlined what features I added initially in **assignment B3** in the next subsection. This app was further improved in **assignment B4** (see **assignment B4** section).
