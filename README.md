@@ -53,7 +53,7 @@ My application additions and modifications have made the app more user-friendly,
 
 For **assignment B4**, I have included numerous additional features (in addition to the previous ones from **assignment B3**) while also improving on a few of the previous features and overall aesthetics of the application. The script for **assignment B4** (*BCL Shiny App (B4).R*) can be found under folder **B4** as mentioned. You can find the link to the app in the next subsection. Please read the features subsection to learn about the features added in **assignment B4**.
 
-**PLEASE NOTE: I WILL NOT BE REPEATING THE FEATURES FROM ASSIGNMENT B3, AS I HAVE ALREADY LISTED THEM IN THE ASSIGNMENT B3 SECTION.**
+**PLEASE NOTE: I WILL NOT BE RE-typing THE FEATURES FROM ASSIGNMENT B3, AS I HAVE ALREADY LISTED THEM IN THE ASSIGNMENT B3 SECTION.**
 
 ### Assignment B4 App Link
 
